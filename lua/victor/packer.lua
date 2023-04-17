@@ -80,4 +80,17 @@ return require('packer').startup(function(use)
 		end,
 	}
 	use { "ellisonleao/gruvbox.nvim" }
+	use {
+   'lukoshkin/trailing-whitespace',
+		 config = function ()
+				require'trailing-whitespace'.setup {
+					 patterns = { '\\s\\+$' },
+					 palette = { markdown = 'RosyBrown' },
+					 default_color = 'PaleVioletRed',
+				}
+		 end
+	}
+	use('neovim/nvim-lspconfig')
+	use('jose-elias-alvarez/null-ls.nvim')
+	use('MunifTanjim/prettier.nvim')
 end)

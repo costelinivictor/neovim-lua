@@ -3,6 +3,8 @@ require("victor.packer")
 require("victor.set")
 require("victor.filetree")
 require("victor.colorscheme")
+require("victor.null-ls")
+require("victor.prettier")
 
 require('lualine').setup {
 	options = {
@@ -16,9 +18,5 @@ require('nvim_comment').setup {
 	operator_mapping = "<C-/>",
 }
 
-vim.cmd([[
-  augroup Prettier
-    autocmd!
-    autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx Prettier
-  augroup end
-]])
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+
