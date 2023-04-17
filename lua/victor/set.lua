@@ -7,3 +7,4 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
 vim.g.mapleader = " "
+vim.opt.guifont = { "Iosevka", "h24" }

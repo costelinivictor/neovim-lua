@@ -50,4 +50,34 @@ return require('packer').startup(function(use)
 	use "windwp/nvim-ts-autotag"
 	use 'folke/tokyonight.nvim'
 	use 'terrortylor/nvim-comment'
+	use 'mg979/vim-visual-multi'
+	use 'prettier/vim-prettier'
+	use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+	use "f-person/git-blame.nvim"
+	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+		require("toggleterm").setup()
+	end}
+	use {
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({
+				suggestion = {
+						enabled = true,
+						auto_trigger = true,
+						debounce = 75,
+						keymap = {
+							accept = "<tab>",
+							accept_word = false,
+							accept_line = false,
+							next = "<M-]>",
+							prev = "<M-[>",
+							dismiss = "<C-]>",
+						},
+					},
+			})
+		end,
+	}
+	use { "ellisonleao/gruvbox.nvim" }
 end)
