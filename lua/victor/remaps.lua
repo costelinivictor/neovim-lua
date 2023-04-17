@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.keymap.set("i", "<S-tab>", "<C-d>")
 vim.keymap.set("n", "<leader>nh", vim.cmd.noh)
 vim.keymap.set("n", "<leader>ft", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>tf", vim.cmd.NvimTreeFindFile)
@@ -10,5 +11,9 @@ vim.keymap.set("n", "<leader>h", "<C-W>h")
 vim.keymap.set("i", "kj", "<Esc>")
 vim.keymap.set("n", "<leader><tab>", vim.cmd.BufferNext)
 vim.keymap.set("n", "<leader>rb", vim.cmd.BufferRestore)
-vim.keymap.set("n", "<leader>t", vim.cmd.ToggleTerm)
-
+vim.keymap.set("n", "<leader>t", function()
+	vim.cmd("ToggleTerm direction=float")
+end)
+vim.keymap.set("n", "<leader>lg", function()
+	vim.cmd("TermExec cmd='lazygit' direction=float")
+end)

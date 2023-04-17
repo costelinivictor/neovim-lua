@@ -8,9 +8,9 @@ return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
---[[
+	--[[
 	use({
 		"ellisonleao/gruvbox.nvim",
 		as = "gruvbox",
@@ -21,22 +21,23 @@ return require('packer').startup(function(use)
 		branch = 'v2.x',
 		requires = {
 			-- LSP Support
-			{'neovim/nvim-lspconfig'},             -- Required
-			{                                      -- Optional
+			{ 'neovim/nvim-lspconfig' }, -- Required
+			{
+				-- Optional
 				'williamboman/mason.nvim',
 				run = function()
 					pcall(vim.cmd, 'MasonUpdate')
 				end,
 			},
-			{'williamboman/mason-lspconfig.nvim'}, -- Optional
+			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{'hrsh7th/nvim-cmp'},     -- Required
-			{'hrsh7th/cmp-nvim-lsp'}, -- Required
-			{'L3MON4D3/LuaSnip'},     -- Required
+			{ 'hrsh7th/nvim-cmp' },  -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' }, -- Required
+			{ 'L3MON4D3/LuaSnip' },  -- Required
 		}
 	}
-	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+	use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 	use "tpope/vim-fugitive"
 	use "tpope/vim-surround"
 	use "lukas-reineke/indent-blankline.nvim"
@@ -52,11 +53,11 @@ return require('packer').startup(function(use)
 	use 'terrortylor/nvim-comment'
 	use 'mg979/vim-visual-multi'
 	use 'prettier/vim-prettier'
-	use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+	use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
 	use "f-person/git-blame.nvim"
-	use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
 		require("toggleterm").setup()
-	end}
+	end }
 	use {
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -64,33 +65,39 @@ return require('packer').startup(function(use)
 		config = function()
 			require("copilot").setup({
 				suggestion = {
-						enabled = true,
-						auto_trigger = true,
-						debounce = 75,
-						keymap = {
-							accept = "<tab>",
-							accept_word = false,
-							accept_line = false,
-							next = "<M-]>",
-							prev = "<M-[>",
-							dismiss = "<C-]>",
-						},
+					enabled = true,
+					auto_trigger = true,
+					debounce = 75,
+					keymap = {
+						accept = "<tab>",
+						accept_word = false,
+						accept_line = false,
+						next = "<M-]>",
+						prev = "<M-[>",
+						dismiss = "<C-]>",
 					},
+				},
 			})
 		end,
 	}
 	use { "ellisonleao/gruvbox.nvim" }
 	use {
-   'lukoshkin/trailing-whitespace',
-		 config = function ()
-				require'trailing-whitespace'.setup {
-					 patterns = { '\\s\\+$' },
-					 palette = { markdown = 'RosyBrown' },
-					 default_color = 'PaleVioletRed',
-				}
-		 end
+		'lukoshkin/trailing-whitespace',
+		config = function()
+			require 'trailing-whitespace'.setup {
+				patterns = { '\\s\\+$' },
+				palette = { markdown = 'RosyBrown' },
+				default_color = 'PaleVioletRed',
+			}
+		end
 	}
 	use('neovim/nvim-lspconfig')
 	use('jose-elias-alvarez/null-ls.nvim')
 	use('MunifTanjim/prettier.nvim')
+	use {
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require('gitsigns').setup()
+		end
+	}
 end)
