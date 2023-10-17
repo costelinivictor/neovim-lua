@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.keymap.set("i", "<S-tab>", "<C-d>")
+vim.keymap.set("i", "<tab>", "<C-t>")
 vim.keymap.set("n", "<leader>nh", vim.cmd.noh)
 vim.keymap.set("n", "<leader>ft", vim.cmd.NvimTreeToggle)
 vim.keymap.set("n", "<leader>tf", vim.cmd.NvimTreeFindFile)

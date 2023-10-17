@@ -58,32 +58,13 @@ return require('packer').startup(function(use)
   use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
-  use {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          debounce = 75,
-          keymap = {
-            accept = "<tab>",
-            accept_word = false,
-            accept_line = false,
-            next = "<M-]>",
-            prev = "<M-[>",
-            dismiss = "<C-]>",
-          },
-        },
-      })
-    end,
-  }
+  use { "zbirenbaum/copilot.lua" }
   use { "ellisonleao/gruvbox.nvim" }
+  use "lunarvim/Onedarker.nvim"
   use('neovim/nvim-lspconfig')
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
+  use("rafamadriz/neon")
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -99,4 +80,13 @@ return require('packer').startup(function(use)
     }
   }
   use "olimorris/onedarkpro.nvim"
+  use "wojciechkepka/vim-github-dark"
+  use {
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  }
+  use { "catppuccin/nvim", as = "catppuccin" }
 end)

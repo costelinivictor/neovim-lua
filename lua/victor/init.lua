@@ -5,14 +5,9 @@ require("victor.filetree")
 require("victor.colorscheme")
 require("victor.null-ls")
 require("victor.prettier")
+require("victor.noice")
+require("victor.copilot")
 
-require('lualine').setup {
-  options = {
-    -- theme = 'tokyonight'
-    theme = 'gruvbox_dark'
-    -- theme = 'onedark_dark'
-  }
-}
 require("autoclose").setup()
 require('nvim-ts-autotag').setup()
 require('nvim_comment').setup {
