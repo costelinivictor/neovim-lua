@@ -1,9 +1,3 @@
--- require("gruvbox").setup({
---   contrast = "hard"
--- })
--- vim.cmd("colorscheme gruvbox")
--- vim.cmd("colorscheme onedarker")
-
 require("catppuccin").setup {
   color_overrides = {
     mocha = {
@@ -26,16 +20,3 @@ require("catppuccin").setup {
 }
 
 vim.cmd.colorscheme "catppuccin"
-
--- Enable true color support
-vim.o.termguicolors = true
-
-require('lualine').setup {
-  options = {
-    -- theme = 'tokyonight'
-    -- theme = 'gruvbox_dark'
-    -- theme = 'onedark_dark'
-    -- theme = 'onedarker'
-    theme = 'catppuccin'
-  }
-}

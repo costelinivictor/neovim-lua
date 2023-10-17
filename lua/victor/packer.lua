@@ -10,12 +10,6 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  --[[
-	use({
-		"ellisonleao/gruvbox.nvim",
-		as = "gruvbox",
-	})
-	]]
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
@@ -30,11 +24,10 @@ return require('packer').startup(function(use)
         end,
       },
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },     -- Required
-      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },     -- Required
+      { 'hrsh7th/nvim-cmp' },                  -- Required
+      { 'hrsh7th/cmp-nvim-lsp' },              -- Required
+      { 'L3MON4D3/LuaSnip' },                  -- Required
     }
   }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -42,51 +35,25 @@ return require('packer').startup(function(use)
   use "tpope/vim-surround"
   use "nvim-tree/nvim-tree.lua"
   use "nvim-tree/nvim-web-devicons"
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-  }
-  use 'm4xshen/autoclose.nvim'
-  use "windwp/nvim-ts-autotag"
-  use 'folke/tokyonight.nvim'
+  use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
+  use { 'm4xshen/autoclose.nvim', config = function() require('autoclose').setup() end }
+  use { "windwp/nvim-ts-autotag", config = function() require('nvim-ts-autotag').setup() end }
   use 'terrortylor/nvim-comment'
   use 'mg979/vim-visual-multi'
   use({ 'projekt0n/github-nvim-theme' })
   use 'prettier/vim-prettier'
   use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
   use "f-person/git-blame.nvim"
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end }
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function() require("toggleterm").setup() end }
   use { "zbirenbaum/copilot.lua" }
   use { "ellisonleao/gruvbox.nvim" }
   use "lunarvim/Onedarker.nvim"
   use('neovim/nvim-lspconfig')
   use('jose-elias-alvarez/null-ls.nvim')
   use('MunifTanjim/prettier.nvim')
-  use("rafamadriz/neon")
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-  use {
-    'EthanJWright/vs-tasks.nvim',
-    requires = {
-      'nvim-lua/popup.nvim',
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim'
-    }
-  }
-  use "olimorris/onedarkpro.nvim"
-  use "wojciechkepka/vim-github-dark"
-  use {
-    "folke/noice.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  }
+  use { 'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end }
+  use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } }
   use { "catppuccin/nvim", as = "catppuccin" }
+  use { "folke/trouble.nvim" }
+  use "yamatsum/nvim-cursorline"
 end)
