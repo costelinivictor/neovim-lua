@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -56,4 +55,22 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
   use { "folke/trouble.nvim" }
   use "yamatsum/nvim-cursorline"
+  use { "folke/neodev.nvim" }
+  use {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function() require("todo-comments").setup() end
+  }
+  use 'dstein64/nvim-scrollview'
+  use 'ntpeters/vim-better-whitespace'
+  use {
+    'goolord/alpha-nvim',
+    requires = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+    end
+  }
+  use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
+  use { "lukas-reineke/indent-blankline.nvim", }
+  use { "folke/which-key.nvim" }
 end)
