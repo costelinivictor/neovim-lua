@@ -8,4 +8,5 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.opt.guifont = { "Iosevka", "h24" }
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
 vim.g.gitblame_delay = 1000

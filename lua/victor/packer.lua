@@ -34,8 +34,8 @@ return require('packer').startup(function(use)
   use "tpope/vim-surround"
   use "nvim-tree/nvim-tree.lua"
   use "nvim-tree/nvim-web-devicons"
-  use { 'nvim-lualine/lualine.nvim', config = function() require('lualine').setup() end }
-  use { 'm4xshen/autoclose.nvim', config = function() require('autoclose').setup() end }
+  use { 'nvim-lualine/lualine.nvim' }
+  use { 'm4xshen/autoclose.nvim' }
   use { "windwp/nvim-ts-autotag", config = function() require('nvim-ts-autotag').setup() end }
   use 'terrortylor/nvim-comment'
   use 'mg979/vim-visual-multi'
@@ -72,5 +72,5 @@ return require('packer').startup(function(use)
   }
   use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
   use { "lukas-reineke/indent-blankline.nvim", }
-  use { "folke/which-key.nvim" }
+  use "meuter/lualine-so-fancy.nvim"
 end)
