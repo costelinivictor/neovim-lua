@@ -32,8 +32,7 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use "tpope/vim-fugitive"
   use "tpope/vim-surround"
-  use "nvim-tree/nvim-tree.lua"
-  use "nvim-tree/nvim-web-devicons"
+  use { 'DaikyXendo/nvim-tree.lua', requires = { 'DaikyXendo/nvim-material-icon' } }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'm4xshen/autoclose.nvim' }
   use { "windwp/nvim-ts-autotag", config = function() require('nvim-ts-autotag').setup() end }
@@ -41,7 +40,8 @@ return require('packer').startup(function(use)
   use 'mg979/vim-visual-multi'
   use({ 'projekt0n/github-nvim-theme' })
   use 'prettier/vim-prettier'
-  use { 'romgrk/barbar.nvim', requires = 'nvim-web-devicons' }
+  use 'romgrk/barbar.nvim'
+  use "nvim-tree/nvim-web-devicons"
   use "f-person/git-blame.nvim"
   use { "akinsho/toggleterm.nvim", tag = '*', config = function() require("toggleterm").setup() end }
   use { "zbirenbaum/copilot.lua" }
@@ -62,15 +62,15 @@ return require('packer').startup(function(use)
     config = function() require("todo-comments").setup() end
   }
   use 'dstein64/nvim-scrollview'
-  use 'ntpeters/vim-better-whitespace'
   use {
-    'goolord/alpha-nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.startify'.config)
-    end
+    "pmizio/typescript-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   }
   use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
-  use { "lukas-reineke/indent-blankline.nvim", }
+  use { "lukas-reineke/indent-blankline.nvim", config = function() require("ibl").setup() end }
+  use { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" }
   use "meuter/lualine-so-fancy.nvim"
+  use { 'gen740/SmoothCursor.nvim', config = function() require('smoothcursor').setup() end }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run =
+  'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 end)

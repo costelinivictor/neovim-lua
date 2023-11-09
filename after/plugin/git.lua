@@ -4,5 +4,6 @@ vim.keymap.set("n", "<leader>ds", vim.cmd.GitDiffSplit);
 
 require('gitblame').setup {
   --Note how the `gitblame_` prefix is omitted in `setup`
-  enabled = false,
+  enabled = true,
+  delay = 500,
 }

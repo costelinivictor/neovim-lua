@@ -12,10 +12,13 @@ require("lualine").setup({
     },
     lualine_b = {
       { "fancy_branch" },
-      { "fancy_diff" },
     },
     lualine_c = {
-      { "fancy_cwd", substitute_home = true }
+      {
+        function()
+          return vim.fn.expand("%:.")
+        end
+      }
     },
     lualine_x = {
       { "fancy_macro" },
@@ -23,10 +26,7 @@ require("lualine").setup({
       { "fancy_searchcount" },
     },
     lualine_y = {
-      { "fancy_filetype" }
+      { "fancy_diff" },
     },
-    lualine_z = {
-      { "fancy_lsp_servers" }
-    }
   }
 })
