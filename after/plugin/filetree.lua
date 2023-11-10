@@ -1,14 +1,11 @@
--- examples for your init.lua
+local tree = require("nvim-tree")
+local api = require("nvim-tree.api")
 
--- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
--- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- OR setup with some options
-require("nvim-tree").setup({
+tree.setup({
   sort_by = "case_sensitive",
   renderer = {
     group_empty = true,
@@ -44,7 +41,5 @@ require("nvim-tree").setup({
     },
   }
 })
-
-local api = require("nvim-tree.api")
 
 api.tree.open()

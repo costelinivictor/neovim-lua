@@ -1,9 +1,9 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
-vim.keymap.set("n", "<leader>gp", vim.cmd.GitPush);
-vim.keymap.set("n", "<leader>ds", vim.cmd.GitDiffSplit);
-
 require('gitblame').setup {
-  --Note how the `gitblame_` prefix is omitted in `setup`
   enabled = true,
   delay = 500,
+  date_format = '%d/%m/%Y %H:%M',
+}
+
+vim.g.gitblame_set_extmark_options = {
+  hl_mode = "combine",
 }

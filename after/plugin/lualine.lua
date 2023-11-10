@@ -8,7 +8,7 @@ require("lualine").setup({
   },
   sections = {
     lualine_a = {
-      { "fancy_mode", width = 8 }
+      { "fancy_mode", width = 6 }
     },
     lualine_b = {
       { "fancy_branch" },

@@ -9,6 +9,3 @@ vim.g.mapleader = " "
 vim.opt.guifont = { "Iosevka", "h24" }
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
-vim.g.gitblame_set_extmark_options = {
-  hl_mode = "combine",
-}
