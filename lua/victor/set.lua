@@ -9,3 +9,4 @@ vim.g.mapleader = " "
 vim.opt.guifont = { "Iosevka", "h24" }
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
+vim.wo.wrap = false

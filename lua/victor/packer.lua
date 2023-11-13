@@ -1,6 +1,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require("packer").startup(function(use)
+  use "RRethy/vim-illuminate"
+  use "gen740/SmoothCursor.nvim"
   use "onsails/lspkind.nvim"
   use "chrisgrieser/cmp-nerdfont"
   use "wbthomason/packer.nvim"
@@ -25,6 +27,7 @@ return require("packer").startup(function(use)
   use "folke/trouble.nvim"
   use "folke/neodev.nvim"
   use "yamatsum/nvim-cursorline"
+  use "preservim/nerdcommenter"
   use "dstein64/nvim-scrollview"
   use {
     "nvim-telescope/telescope.nvim", tag = "0.1.1",
@@ -61,7 +64,6 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   }
   use { "L3MON4D3/LuaSnip", run = "make install_jsregexp" }
-  use { "gen740/SmoothCursor.nvim", config = function() require("smoothcursor").setup() end }
   use { "nvim-telescope/telescope-fzf-native.nvim", run =
   "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
 end)

@@ -10,15 +10,18 @@ local list = {
   "tailwindcss",
   "dockerls",
   "emmet_language_server",
-  "terraformls"
+  "terraformls",
+  "swift_mesonls"
 }
 
 local custom_configs = {
   eslint = {
-    on_attach = function()
+    on_attach = function(client)
       vim.api.nvim_create_autocmd('BufWritePost', {
         callback = function()
-          vim.cmd('EslintFixAll')
+          vim.cmd('noautocmd w')  -- cancel write
+          vim.cmd('EslintFixAll') -- fix is async
+          vim.cmd('write')        -- write
         end,
       })
     end
