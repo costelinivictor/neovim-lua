@@ -2,7 +2,7 @@
 local list = {
   'tsserver',
   'eslint',
-  'prettier_d',
+  'prettier',
   'lua_ls',
   "html",
   "intelephense", -- php
@@ -16,7 +16,7 @@ local list = {
 
 local custom_configs = {
   eslint = {
-    on_attach = function(client)
+    on_attach = function()
       vim.api.nvim_create_autocmd('BufWritePost', {
         callback = function()
           vim.cmd('noautocmd w')  -- cancel write
