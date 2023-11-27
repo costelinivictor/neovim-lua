@@ -18,7 +18,6 @@ return require("packer").startup(function(use)
   use "f-person/git-blame.nvim"
   use "zbirenbaum/copilot.lua"
   use "neovim/nvim-lspconfig"
-  use "jose-elias-alvarez/null-ls.nvim"
   use "MunifTanjim/prettier.nvim"
   use "lukas-reineke/indent-blankline.nvim"
   use "meuter/lualine-so-fancy.nvim"

@@ -2,7 +2,6 @@
 local list = {
   'tsserver',
   'eslint',
-  'prettier',
   'lua_ls',
   "html",
   "intelephense", -- php
@@ -11,12 +10,18 @@ local list = {
   "dockerls",
   "emmet_language_server",
   "terraformls",
-  "swift_mesonls"
 }
 
 local custom_configs = {
   eslint = {
     on_attach = function()
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        callback = function()
+          vim.cmd('noautocmd w') -- cancel write
+          vim.cmd('Prettier')    -- fix is async
+          vim.cmd('write')       -- write
+        end,
+      })
       vim.api.nvim_create_autocmd('BufWritePost', {
         callback = function()
           vim.cmd('noautocmd w')  -- cancel write
