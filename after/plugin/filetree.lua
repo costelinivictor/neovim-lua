@@ -24,7 +24,7 @@ tree.setup({
     custom = { "^.git$" }
   },
   view = {
-    width = 50,
+    width = 40,
   },
   update_focused_file = {
     enable = true,

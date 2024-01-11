@@ -28,12 +28,6 @@ return require("packer").startup(function(use)
   use "dstein64/nvim-scrollview"
   use { "catppuccin/nvim", as = "catppuccin" }
   use {
-    "nvim-telescope/telescope.nvim", tag = "0.1.1",
-    requires = {
-      { "nvim-lua/plenary.nvim" }
-    }
-  }
-  use {
     "VonHeikemen/lsp-zero.nvim",
     branch = "v2.x",
     requires = {
@@ -46,7 +40,8 @@ return require("packer").startup(function(use)
     }
   }
   use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
-  use { "DaikyXendo/nvim-tree.lua", requires = { "DaikyXendo/nvim-material-icon" } }
+  use { "nvim-tree/nvim-tree.lua" }
+  use { "nvim-tree/nvim-web-devicons" }
   use { "windwp/nvim-ts-autotag", config = function() require("nvim-ts-autotag").setup() end }
   use { "lewis6991/gitsigns.nvim", config = function() require("gitsigns").setup() end }
   use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" } }
@@ -59,6 +54,5 @@ return require("packer").startup(function(use)
     "pmizio/typescript-tools.nvim",
     requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
   }
-  use { "nvim-telescope/telescope-fzf-native.nvim", run =
-  "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build" }
+  use { "ibhagwan/fzf-lua", requires = { "nvim-tree/nvim-web-devicons" } }
 end)
